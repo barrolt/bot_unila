@@ -1,0 +1,82 @@
+version: "2.0"
+
+stories:
+
+- story: mulai
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_nama
+  - action: name_form
+  - active_loop: name_form
+
+- story: sedih
+  steps:
+  - action: utter_kabar
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_tanya_bantuan
+
+- story: senang
+  steps:
+  - action: utter_kabar
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_tanya_bantuan
+
+    #- story: lupa password tendik/dosen
+    #steps:
+    #- intent: tendik
+    #- action: utter_pw/tendik
+    #- action: nip_form
+    #- active_loop: nip_form
+
+    #- story: lupa password mahasiswa
+    #steps:
+    #- intent: mahasiswa
+    #- action: utter_pw/mahasiswa
+    #- action: npm_form
+    #- active_loop: npm_form
+    #    entities:
+    #    - resource_type: "npm"
+    #  - slot_was_set:
+    #    - resource_type: "npm"
+    #  - action: action_ambil_data
+    #  - action: npm_form
+    #  - active_loop: npm_form
+
+    #- story: lupa password input email
+    #steps:
+    #- action: utter_input_email
+    #- action: email_form
+    #- active_loop: email_form
+
+- story: lupa password mahasiswa versi dua
+  steps:
+  - or:
+    - intent: mahasiswa
+    - intent: tendik
+  - action: utter_pw/mahasiswa
+  - intent: input_npm
+    entities: 
+    - npm: 222
+  - action: action_remember_npm
+  - slot_was_set: 
+    - npm_slot: 222
+  - action: action_ambil_NPM
+
+- story:
+  steps:
+  - action: utter_input_email
+  - intent: input_email_mahasiswa
+    entities: 
+    - email_mahasiswa: andi@gmail.com
+  - action: action_ambil_data
+  - slot_was_set: 
+    - email_mahasiswa_slot: andi@gmail.com
+  
+- story: lupa password mahasiswa versi dua gagal
+  steps:
+  - action: utter_gagal
+  - action: utter_pesan/bantuan
+

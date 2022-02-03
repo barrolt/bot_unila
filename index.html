@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+  </head>
+
+<body>
+
+    <style>
+        .rw-conversation-container .rw-header{background-color:#4682B4;}
+        .rw-conversation-container .rw-messages-container .rw-message .rw-client{background-color:#4682B4;}
+        .rw-launcher{background-color:#4682B4;}
+        .rw-conversation-container .rw-reply{background-color:#4682B4; border: 1px solid hsl(250, 69%, 61%);}
+    </style>
+
+<script>!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+    // Replace 1.x.x with the version that you want
+    (e.async = !0),
+    (e.onload = () => {
+      window.WebChat.default(
+        {
+          customData: { language: "en" },
+          socketUrl: "http://localhost:5005",
+	  title: "Universitas Lampung",
+	  subtitle: "Ketik Hi untuk memulai percakapan", 
+	  profileAvatar: "./pict/unila.jpeg",
+	  inputTextFieldHint: "type here...",
+	  // add other props here
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+localStorage.clear();
+</script>
+
+</body>
+
+</html>

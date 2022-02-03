@@ -1,0 +1,177 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- berterimakasih:
+    use_entities: true
+- request_name:
+    use_entities: true
+- mahasiswa:
+    use_entities: true
+- pesan:
+    use_entities: true
+- input_email_mahasiswa:
+    use_entities: true
+- input_npm:
+    use_entities: true
+- request_nip:
+    use_entities: true
+- request_npm:
+    use_entities: true
+- tendik:
+    use_entities: true
+- request_email_mahasiswa:
+    use_entities: true
+- input_nip:
+    use_entities: true
+- out_of_scope
+entities:
+- email_mahasiswa
+- nip_tendik
+- npm
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  nip_slot:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  npm_slot:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  email_mahasiswa_slot:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_start:
+  - text: Hai! saya bot, siapa nama mu?
+  utter_greet:
+  - text: Hey!
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: Saya punya sesuatu untuk menghibur mu
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Senang mendengarnya
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_nama:
+  - text: Saya bot, siapa nama mu?
+  utter_kabar:
+  - text: Bagaimana harimu?
+  utter_pesan/salam:
+  - text: Wa'alaikumsalam Warohmatullahi Wabarokatuh
+  utter_submit:
+  - text: Nama yang bagus
+  utter_slots_value:
+  - text: Sebuah penghargaan bisa mengenal mu {name}
+  utter_tanya_bantuan:
+  - text: Apakah ada yang bisa saya bantu?
+  utter_pesan/bantuan:
+  - buttons:
+    - payload: Lupa Password SSO Unila
+      title: '1'
+    - payload: Kendala Jaringan Internet
+      title: '2'
+    - payload: Kendala Website
+      title: '3'
+    - payload: Kendala Sistem Informasi
+      title: '4'
+    text: |-
+      Untuk bantuan yang bisa saya bantu adalah :
+      1. Lupa Password SSO Unila
+      2. Kendala Jaringan Internet
+      3. Kendala Website
+      4. Kendala Sistem Informasi
+  utter_pesan/lupa_password:
+  - buttons:
+    - payload: Dosen
+      title: '1'
+    - payload: Mahasiswa
+      title: '2'
+    text: |-
+      Masukan status anda :
+      1. Tendik/Dosen
+      2. Mahasiswa
+  utter_pw/tendik:
+  - text: Masukan NIP anda
+  utter_pw/mahasiswa:
+  - text: Masukan NPM/NIP anda
+  utter_input_email:
+  - text: Masukan email anda
+  utter_input_email_tendik:
+  - text: Masukan email anda
+  utter_balasan:
+  - text: berhasil, ada lagi yang bisa saya bantu
+  utter_balasan_npm:
+  - text: Data valid
+  utter_out_of_scope:
+  - text: Maaf saya tidak mengerti, ada lagi yang saya bantu?
+  utter_gagal:
+  - text: Email anda salah! silahkan coba lagi
+  utter_gagal_npm:
+  - text: NPM/NIP anda salah! silahkan coba lagi
+  utter_pesan/pengembangan:
+  - text: Menu belum ada
+
+
+actions:
+- action_ambil_data
+- action_remember_npm
+- action_ambil_NPM
+forms:
+  name_form:
+    required_slots:
+      name:
+      - type: from_text
+  nip_form:
+    ignored_intent:
+    - greet
+    - berterimakasih
+    - goodbye
+    - pesan
+    - affirm
+    - deny
+    - mood_great
+    - mood_unhappy
+    - bot_challenge
+    - mahasiswa
+    required_slots:
+      nip:
+      - entity: npm
+        intent: mahasiswa
+        type: from_entity
+e2e_actions: []

@@ -1,0 +1,152 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - baik
+    - alhamdulillah
+    - saya sedang senang
+    - senang
+    - wonderful
+    - very good
+    - extremely good
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - hari yang buruk
+    - sedang tidak baik
+    - saya sedang sedih
+    - bingung
+    - saya sedang bingung
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: pesan/salam
+  examples: |
+    - assalamu'alaikum
+
+- intent: berterimakasih
+  examples: |
+    - terimakasih
+    - thanks
+    - thank you
+    - terima kasih banyak
+    - thx
+
+- intent: pesan/bantuan
+  examples: |
+    - ya saya butuh bantuan
+    - ya saya butuh
+    - butuh bantuan
+    - tentu saja
+    - saya mencari info
+    - info
+    - menu utama
+
+- intent: pesan/pengembangan
+  examples: |
+    - Kendala Jaringan Internet
+    - Kendala Website
+    - Kendala Sistem Informasi
+
+- intent: input_nip
+  examples: |
+    - [111](npm)
+    - [9999](npm)
+    - nip saya [9999](npm)
+    - npm saya [111](npm)
+
+- intent: pesan/lupa_password
+  examples: |
+    - lupa password SSO Unila
+    - lupa passwod
+    - saya lupa password
+
+- intent: tendik
+  examples: |
+    - tendik
+    - dosen
+    - tenaga pendidik
+    - saya tenaga pendidik
+    - saya dosen
+
+- intent: mahasiswa
+  examples: |
+    - mahasiswa
+    - saya mahasiswa
+
+- intent: input_email_mahasiswa
+  examples: |
+    - [andi@gmail.com](email_mahasiswa)
+    - [yasin@mail.com](email_mahasiswa)
+    - email saya [andi@gmail.com](email_mahasiswa)
+    - email [andi@gmail.com](email_mahasiswa)
+    - [09021281924087@student.unsri.ac.id](email_mahasiswa)
+
+- intent: out_of_scope
+  examples: |
+    - 3 + 4 =
+    - aaaaaaaa
+    - akfahfffka
+    - kamu sudah makan? 
+ 
+
