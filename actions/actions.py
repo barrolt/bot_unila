@@ -190,7 +190,7 @@ class DbQueryingMethods:
                         s.starttls() 
           
                         # Authentication
-                        s.login("syauqi.joke@gmail.com", "mezquillacordoba")
+                        s.login("email anda", "password email anda")
           
                         # Message to be sent
                         message = "Hello {} , This is a demo message".format(user_name)
@@ -208,17 +208,3 @@ class DbQueryingMethods:
         print ("selesai seluruh for")
 
 
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
